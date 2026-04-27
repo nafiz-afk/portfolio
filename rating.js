@@ -135,7 +135,7 @@
       }
       const sorted = [...ratings].sort((a, b) => b.ts - a.ts);
       reviewsList.innerHTML = sorted.map((r, idx) => {
-        const name   = r.name && r.name.trim() ? r.name.trim() : 'Anonymous';
+        const name   = r.name && r.name.trim() ? r.name.trim() : 'Unlisted User';
         const initials = name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
         const stars  = '<i class="fas fa-star r-star"></i>'.repeat(r.stars) +
                        '<i class="far fa-star r-star" style="opacity:.3"></i>'.repeat(5 - r.stars);
@@ -311,7 +311,7 @@
     setInterval(async () => {
       const ratings = await fetchRatings();
       updateAllUI(ratings);
-    }, 60000);
+    }, 40000);
   }
 
   /* ════════════════════════════════════════
